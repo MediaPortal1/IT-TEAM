@@ -36,7 +36,7 @@ class VkPresenterImpl(val context: Context, val view: VkView) : VkPresenter, VkP
     override fun onRefresh() {
         wallList.clear()
         isRefreshing = true
-        loadWallPosts(0)
+        loadWallPosts()
     }
 
 
@@ -59,6 +59,7 @@ class VkPresenterImpl(val context: Context, val view: VkView) : VkPresenter, VkP
         wallAdapter = WallAdapter(wallList, recycler, this)
         recycler.adapter = wallAdapter
         isWallInit = true
+        loadWallPosts()
     }
 
     override fun loadWallPosts(offset: Int) {
